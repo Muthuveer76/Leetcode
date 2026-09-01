@@ -1,0 +1,23 @@
+class Solution {
+    public int minSteps(String s, String t) {
+        int[] freq = new int[26];
+
+        for (char c : s.toCharArray()) {
+            freq[c - 'a']++;
+        }
+
+        for (char c : t.toCharArray()) {
+            freq[c - 'a']--;
+        }
+
+        int ans = 0;
+
+        for (int x : freq) {
+            if (x > 0) {
+                ans += x;
+            }
+        }
+
+        return ans;
+    }
+}
